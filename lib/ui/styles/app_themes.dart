@@ -22,6 +22,7 @@ class AppThemes {
         ),
       ),
       cardColor: Colors.grey.shade200,
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       progressIndicatorTheme:
           const ProgressIndicatorThemeData(color: Colors.red),
       textTheme: TextTheme(
@@ -82,6 +83,7 @@ class AppThemes {
     primarySwatch: Colors.blue,
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColors.gray900,
+    colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.gray900,
       elevation: 0,
