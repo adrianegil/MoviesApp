@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviesapp/network/utils/url_provider.dart';
 import 'package:moviesapp/ui/pages/movie_details/movie_details_controller.dart';
+import 'package:moviesapp/ui/styles/app_colors.dart';
+import 'package:moviesapp/ui/widgets/loading_view.dart';
 
 class MovieDetailsPage extends StatefulWidget {
   const MovieDetailsPage({super.key});
@@ -33,16 +35,15 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                       imageUrl:
                           "${UrlProvider.IMAGE_URL}/${controller.movieModel?.posterPath}",
                       progressIndicatorBuilder:
-                          (context, url, downloadProgress) =>
-                              CircularProgressIndicator(
-                                  value: downloadProgress.progress),
+                          (context, url, downloadProgress) => LoadingView(),
                       errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
                     Positioned(
                       top: 24,
                       left: 0,
                       child: IconButton(
-                        icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                        icon: Icon(Icons.arrow_back_ios,
+                            color: AppColors.primaryColor),
                         onPressed: () {
                           Get.back();
                         },

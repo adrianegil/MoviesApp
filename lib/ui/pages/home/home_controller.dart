@@ -18,7 +18,7 @@ class HomeController extends GetxController {
   /// Variable que indica si hay un error a la hora de cargar los Generos.
   var isErrorGetGenres = false.obs;
 
-  /// Listado de Géneros de Películas
+  /// Listado de los Géneros de Películas
   List<GenreModel> get genres => _genres;
   List<GenreModel> _genres = [];
 
@@ -28,6 +28,7 @@ class HomeController extends GetxController {
   /// Variable que indica si hay un error a la hora de cargar las Películas más populares.
   var isErrorGetPopularMovies = false.obs;
 
+  /// Listado de las Películas más populares
   List<MovieModel> get popularMovies => _popularMovies;
   List<MovieModel> _popularMovies = [];
 

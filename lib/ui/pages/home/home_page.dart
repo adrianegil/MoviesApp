@@ -56,11 +56,9 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () {
                           FocusScope.of(context).unfocus();
                           if (_formKey.currentState!.validate()) {
-                            /*      Get.toNamed(AppRoutes.SEARCH_BY_TITLE,
+                                  Get.toNamed(AppRoutes.SEARCH_BY_TITLE,
                                 arguments:
-                                    controller.searchTxtFieldController.text);*/
-                            controller.getAllGenres();
-                            controller.getAllPopularMovies();
+                                    controller.searchTxtFieldController.text);
                           }
                         },
                       ),
