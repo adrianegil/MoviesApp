@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:moviesapp/ui/pages/home/home_controller.dart';
 import 'package:moviesapp/ui/pages/home/widgets/appbar_main.dart';
 import 'package:moviesapp/ui/pages/home/widgets/movie_item_list.dart';
+import 'package:moviesapp/ui/routes/app_routes.dart';
 import 'package:moviesapp/ui/utils/info_type.dart';
 import 'package:moviesapp/ui/utils/toast_helper.dart';
 
@@ -53,8 +54,9 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () {
                           FocusScope.of(context).unfocus();
                           if (_formKey.currentState!.validate()) {
-                            ToastHelper.showCustomToast(
-                                message: "Buscar", infoType: InfoType.SUCCESS);
+                            Get.toNamed(AppRoutes.SEARCH_BY_TITLE,
+                                arguments:
+                                    controller.searchTxtFieldController.text);
                           }
                         },
                       ),
@@ -88,7 +90,10 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.only(
                             top: 2, bottom: 2, left: 8.0, right: 8.0),
                         child: OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.toNamed(AppRoutes.SEARCH_BY_GENRE,
+                                  arguments: controller.genres[index]);
+                            },
                             child: Text(controller.genres[index].name!)),
                       );
                     }),
@@ -109,7 +114,12 @@ class _HomePageState extends State<HomePage> {
                     itemCount: controller.popularMovies.length,
                     itemBuilder: (context, index) {
                       return MovieItemList(
-                          movieModel: controller.popularMovies[index]);
+                        movieModel: controller.popularMovies[index],
+                        onTap: () {
+                          Get.toNamed(AppRoutes.MOVIE_DETAILS,
+                              arguments: controller.popularMovies[index]);
+                        },
+                      );
                     }),
               )
             ],
