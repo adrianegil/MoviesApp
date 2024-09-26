@@ -46,6 +46,7 @@ class MovieItemList extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   movieModel.title ?? "",
+                  maxLines: 1,
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,

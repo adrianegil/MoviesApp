@@ -37,7 +37,7 @@ class AppBarMain extends StatelessWidget implements PreferredSizeWidget {
               ),
               const SizedBox(width: 8),
               Text(
-                "MovieApp",
+                "MoviesApp",
                 style: TextStyle(color: AppColors.primaryColor),
               )
             ],

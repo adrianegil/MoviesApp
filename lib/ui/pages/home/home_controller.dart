@@ -32,12 +32,21 @@ class HomeController extends GetxController {
   List<MovieModel> get popularMovies => _popularMovies;
   List<MovieModel> _popularMovies = [];
 
+  /// Variable que indica si se está cargando las Películas más populares.
+  var isLoadingTopRatedMovies = false.obs;
+
+  /// Variable que indica si hay un error a la hora de cargar las Películas más populares.
+  var isErrorTopRatedMovies = false.obs;
+
+  /// Listado de las Películas más populares
+  List<MovieModel> get topRaitedMovies => _topRatedMovies;
+  List<MovieModel> _topRatedMovies = [];
+
   @override
   void onInit() {
     super.onInit();
     print("Home onInit");
-    getAllGenres();
-    getAllPopularMovies();
+    init();
   }
 
   /// Permite obtener desde la base de datos todas las imagenes capturadas por el usuario.
@@ -52,8 +61,6 @@ class HomeController extends GetxController {
     } catch (e) {
       isErrorGetGenres(true);
       isLoadingGenres(false);
-      ToastHelper.showCustomToast(
-          message: e.toString(), infoType: InfoType.ERROR);
       print("Error al obtener los Generos: $e");
     }
   }
@@ -70,9 +77,29 @@ class HomeController extends GetxController {
     } catch (e) {
       isErrorGetPopularMovies(true);
       isLoadingPopularMovies(false);
-      ToastHelper.showCustomToast(
-          message: e.toString(), infoType: InfoType.ERROR);
-      print("Error al obtener las Peliculas: $e");
+      print("Error al obtener las Peliculas más populares: $e");
     }
+  }
+
+  /// Permite obtener desde la base de datos todas las imagenes capturadas por el usuario.
+  Future<void> getAllTopRatedMovies() async {
+    isErrorTopRatedMovies(false);
+    isLoadingTopRatedMovies(true);
+    try {
+      _topRatedMovies = await ApiMovie.getAllTopRatedMovies();
+      print(_popularMovies);
+      isErrorTopRatedMovies(false);
+      isLoadingTopRatedMovies(false);
+    } catch (e) {
+      isErrorTopRatedMovies(true);
+      isLoadingTopRatedMovies(false);
+      print("Error al obtener las Peliculas mejor valoradas: $e");
+    }
+  }
+
+  void init() {
+    getAllGenres();
+    getAllPopularMovies();
+    getAllTopRatedMovies();
   }
 }

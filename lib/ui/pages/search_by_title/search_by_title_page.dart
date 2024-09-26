@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviesapp/ui/pages/search_by_genre/search_by_genre_controller.dart';
 import 'package:moviesapp/ui/pages/search_by_title/search_by_title_controller.dart';
+import 'package:moviesapp/ui/pages/search_by_title/widgets/movieby_title_item_list.dart';
+import 'package:moviesapp/ui/routes/app_routes.dart';
 import 'package:moviesapp/ui/widgets/appbar_normal.dart';
+import 'package:moviesapp/ui/widgets/empty_view.dart';
+import 'package:moviesapp/ui/widgets/error_view.dart';
+import 'package:moviesapp/ui/widgets/loading_view.dart';
 
 class SearchByTitlePage extends StatefulWidget {
   const SearchByTitlePage({super.key});
@@ -13,14 +18,41 @@ class SearchByTitlePage extends StatefulWidget {
 
 class _SearchByTitlePageState extends State<SearchByTitlePage> {
   final controller = Get.put(SearchByTitleController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarNormal(
-          title: "${"exit".tr}: ${controller.title}",
-        ),
-      body: Center(
-        child: Text("Busqueda por titulo"),
+      appBar: AppBarNormal(
+        title: "${"exit".tr}: ${controller.title}",
+      ),
+      body: Obx(
+        () => (controller.isLoadingMovies.isTrue)
+            ? const LoadingView()
+            : (controller.isErrorGetMovies.isTrue)
+                ? ErrorView(
+                    "Fallo al obtener Peliculas",
+                    onTap: controller.getAllMoviesByTitle,
+                  )
+                : controller.moviesByTitle.isEmpty
+                    ? EmptyView("No hay Peliculas para mostrar")
+                    : Expanded(
+                        child: GridView.extent(
+                          maxCrossAxisExtent: 250,
+                          padding: EdgeInsets.all(2),
+                          mainAxisSpacing: 2,
+                          crossAxisSpacing: 2,
+                          children: List.generate(
+                              controller.moviesByTitle.length, (index) {
+                            return MovieByTitleItemList(
+                                movieModel: controller.moviesByTitle[index],
+                                onTap: () {
+                                  Get.toNamed(AppRoutes.MOVIE_DETAILS,
+                                      arguments:
+                                          controller.moviesByTitle[index]);
+                                });
+                          }),
+                        ),
+                      ),
       ),
     );
   }

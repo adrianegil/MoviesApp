@@ -20,23 +20,24 @@ class MovieByGenreItemList extends StatelessWidget {
         elevation: 4.0,
         margin: EdgeInsets.all(8.0),
         child: Container(
-          width: double.infinity,
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Hero(
                 tag: movieModel,
-                child: CachedNetworkImage(
-                  width: 120,
-                  height: 180,
-                  fit: BoxFit.cover,
-                  imageUrl: "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      LoadingView(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                child: Expanded(
+                  child: CachedNetworkImage(
+                    width: 140,
+                    height: 190,
+                    fit: BoxFit.fill,
+                    imageUrl:
+                        "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) => LoadingView(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  ),
                 ),
               ),
-              SizedBox(width: 12.0),
+              SizedBox(width: 8.0),
               Expanded(
                 child: Padding(
                   padding:

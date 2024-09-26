@@ -17,8 +17,8 @@ class SearchByTitleController extends GetxController {
   var isErrorGetMovies = false.obs;
 
   /// Listado de las Películas más populares
-  List<MovieModel> get moviesByGenre => _moviesByGenre;
-  List<MovieModel> _moviesByGenre = [];
+  List<MovieModel> get moviesByTitle => _moviesByTitle;
+  List<MovieModel> _moviesByTitle = [];
 
   @override
   void onInit() {
@@ -33,8 +33,8 @@ class SearchByTitleController extends GetxController {
     isErrorGetMovies(false);
     isLoadingMovies(true);
     try {
-      _moviesByGenre = await ApiMovie.getAllMoviesByTitle(_title!);
-      print(_moviesByGenre);
+      _moviesByTitle = await ApiMovie.getAllMoviesByTitle(_title!);
+      print(_moviesByTitle);
       isErrorGetMovies(false);
       isLoadingMovies(false);
     } catch (e) {
