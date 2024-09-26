@@ -17,7 +17,7 @@ class _SearchByTitlePageState extends State<SearchByTitlePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarNormal(
-          title: controller.title,
+          title: "${"exit".tr}: ${controller.title}",
         ),
       body: Center(
         child: Text("Busqueda por titulo"),

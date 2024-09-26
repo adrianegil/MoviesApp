@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviesapp/ui/pages/search_by_genre/search_by_genre_controller.dart';
-import 'package:moviesapp/ui/pages/search_by_title/search_by_title_controller.dart';
+import 'package:moviesapp/ui/pages/search_by_genre/widgets/movie_by_genre_item_list.dart';
+import 'package:moviesapp/ui/routes/app_routes.dart';
 import 'package:moviesapp/ui/widgets/appbar_normal.dart';
+import 'package:moviesapp/ui/widgets/empty_view.dart';
+import 'package:moviesapp/ui/widgets/error_view.dart';
+import 'package:moviesapp/ui/widgets/loading_view.dart';
 
 class SearchByGenrePage extends StatefulWidget {
   const SearchByGenrePage({super.key});
@@ -20,8 +24,28 @@ class _SearchByGenrePageState extends State<SearchByGenrePage> {
       appBar: AppBarNormal(
         title: controller.genreModel?.name,
       ),
-      body: Center(
-        child: Text("Busqueda por Genero"),
+      body: Obx(
+        () => (controller.isLoadingMovies.isTrue)
+            ? const LoadingView()
+            : (controller.isErrorGetMovies.isTrue)
+                ? ErrorView("Fallo al obtener Peliculas")
+                : controller.moviesByGenre.isEmpty
+                    ? EmptyView("No hay Peliculas para mostrar")
+                    : Expanded(
+                        child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: controller.moviesByGenre.length,
+                            itemBuilder: (context, index) {
+                              return MovieByGenreItemList(
+                                movieModel: controller.moviesByGenre[index],
+                                onTap: () {
+                                  Get.toNamed(AppRoutes.MOVIE_DETAILS,
+                                      arguments:
+                                          controller.moviesByGenre[index]);
+                                },
+                              );
+                            }),
+                      ),
       ),
     );
   }
