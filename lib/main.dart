@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: AppRoutes.HOME,
       getPages: AppPages.list,
       defaultTransition: Transition.fade,
-      transitionDuration: const Duration(milliseconds: 900),
+      transitionDuration: const Duration(milliseconds: 500),
       translations: Messages(),
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('en', 'US'),

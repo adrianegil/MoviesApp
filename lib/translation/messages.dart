@@ -11,6 +11,8 @@ class Messages extends Translations {
           "do_you_want_to_exit": "¿Desea Cerrar la App?",
           "exit": "Salir",
           "required": "Requerido",
+          "failed_to_connect_to_server": "Fallo en la conexión al servidor",
+          "http_call_failed": "Fallo en la llamada http",
         },
         //Idioma Ingles
         "en_US": {
@@ -19,6 +21,8 @@ class Messages extends Translations {
           "do_you_want_to_exit": "Do you want to close the app?",
           "exit": "Exit",
           "required": "Required",
+          "failed_to_connect_to_server": "Failed to connect to server",
+          "http_call_failed": "Http call failed",
         }
       };
 }

@@ -16,4 +16,9 @@ class GenreModel {
     data['name'] = this.name;
     return data;
   }
+
+  @override
+  String toString() {
+    return 'GenreModel{id: $id, name: $name}';
+  }
 }

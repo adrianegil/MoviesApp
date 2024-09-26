@@ -39,6 +39,8 @@ dependencies:
   get: ^4.6.6
   # Se utiliza para realizar peticiones HTTP.
   http: 1.2.2
+  # Biblioteca Flutter para cargar y almacenar en caché imágenes de red. También se puede utilizar con widgets de error y marcadores de posición.
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moviesapp/network/model/movie_model.dart';
 import 'package:moviesapp/network/utils/url_provider.dart';
+import 'package:moviesapp/ui/widgets/loading_view.dart';
 
 class MovieItemList extends StatelessWidget {
-
   MovieModel movieModel;
   final VoidCallback? onTap;
 
@@ -12,23 +13,33 @@ class MovieItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      splashColor: Colors.grey,
-      borderRadius: BorderRadius.circular(18),
-      child: Card(
-        elevation: 4.0,
-        margin: EdgeInsets.all(8.0),
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      elevation: 4.0,
+      margin: EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: onTap,
+        splashColor: Colors.grey,
+        borderRadius: BorderRadius.circular(10),
         child: Container(
           width: 250,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.network(
+              /*    Image.network(
                 "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
                 fit: BoxFit.fill,
                 width: 250,
                 height: 250,
+              ),*/
+              CachedNetworkImage(
+                width: 250,
+                height: 250,
+                fit: BoxFit.fill,
+                imageUrl: "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    LoadingView(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),

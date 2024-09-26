@@ -6,6 +6,8 @@ import 'package:moviesapp/ui/pages/home/widgets/movie_item_list.dart';
 import 'package:moviesapp/ui/routes/app_routes.dart';
 import 'package:moviesapp/ui/utils/info_type.dart';
 import 'package:moviesapp/ui/utils/toast_helper.dart';
+import 'package:moviesapp/ui/widgets/error_view.dart';
+import 'package:moviesapp/ui/widgets/loading_view.dart';
 
 import '../../styles/app_colors.dart';
 import '../../styles/app_styles.dart';
@@ -54,9 +56,11 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () {
                           FocusScope.of(context).unfocus();
                           if (_formKey.currentState!.validate()) {
-                            Get.toNamed(AppRoutes.SEARCH_BY_TITLE,
+                            /*      Get.toNamed(AppRoutes.SEARCH_BY_TITLE,
                                 arguments:
-                                    controller.searchTxtFieldController.text);
+                                    controller.searchTxtFieldController.text);*/
+                            controller.getAllGenres();
+                            controller.getAllPopularMovies();
                           }
                         },
                       ),
@@ -80,23 +84,58 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(height: 8),
-              Container(
-                height: 40,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: controller.genres.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(
-                            top: 2, bottom: 2, left: 8.0, right: 8.0),
-                        child: OutlinedButton(
-                            onPressed: () {
-                              Get.toNamed(AppRoutes.SEARCH_BY_GENRE,
-                                  arguments: controller.genres[index]);
-                            },
-                            child: Text(controller.genres[index].name!)),
-                      );
-                    }),
+              Obx(
+                () => (controller.isLoadingGenres.isTrue)
+                    ? const LoadingView()
+                    : (controller.isErrorGetGenres.isTrue)
+                        ? Container(
+                            child: Center(
+                              child: Column(
+                                children: [
+                                  Icon(Icons.error,
+                                      size: 40, color: Colors.red),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(
+                                        left: 10, right: 10, bottom: 10),
+                                    child: Text(
+                                      "Error al Cargar los Géneros de las Peliculas",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        letterSpacing: 1,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        : Container(
+                            height: 40,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: controller.genres.length,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 2,
+                                        bottom: 2,
+                                        left: 8.0,
+                                        right: 8.0),
+                                    child: OutlinedButton(
+                                        onPressed: () {
+                                          Get.toNamed(AppRoutes.SEARCH_BY_GENRE,
+                                              arguments:
+                                                  controller.genres[index]);
+                                        },
+                                        child: Text(
+                                            controller.genres[index].name!)),
+                                  );
+                                }),
+                          ),
               ),
               SizedBox(height: 8),
               Text(
@@ -107,20 +146,27 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(height: 8),
-              Container(
-                height: 390,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: controller.popularMovies.length,
-                    itemBuilder: (context, index) {
-                      return MovieItemList(
-                        movieModel: controller.popularMovies[index],
-                        onTap: () {
-                          Get.toNamed(AppRoutes.MOVIE_DETAILS,
-                              arguments: controller.popularMovies[index]);
-                        },
-                      );
-                    }),
+              Obx(
+                () => (controller.isLoadingPopularMovies.isTrue)
+                    ? const LoadingView()
+                    : (controller.isErrorGetPopularMovies.isTrue)
+                        ? ErrorView("Fallo al obtener Peliculas")
+                        : Container(
+                            height: 390,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: controller.popularMovies.length,
+                                itemBuilder: (context, index) {
+                                  return MovieItemList(
+                                    movieModel: controller.popularMovies[index],
+                                    onTap: () {
+                                      Get.toNamed(AppRoutes.MOVIE_DETAILS,
+                                          arguments:
+                                              controller.popularMovies[index]);
+                                    },
+                                  );
+                                }),
+                          ),
               )
             ],
           ),
