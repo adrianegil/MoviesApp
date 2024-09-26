@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../styles/app_colors.dart';
 
+/// Vista correspondiente al estado de Cargando
 class LoadingView extends StatelessWidget {
   const LoadingView({super.key});
 
@@ -11,7 +12,7 @@ class LoadingView extends StatelessWidget {
       child: Container(
         child: const CupertinoActivityIndicator(
           radius: 20,
-          color: AppColors.secondaryColor,
+          color: AppColors.primaryColor,
         ),
       ),
     );

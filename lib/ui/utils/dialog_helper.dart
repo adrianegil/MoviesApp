@@ -11,7 +11,7 @@ class DialogHelper {
   static Future showDialogLoading(
       {String? titulo, required String mensaje}) async {
     return Get.dialog(
-        WillPopScope(
+        PopScope(
             child: AlertDialog(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
@@ -33,7 +33,7 @@ class DialogHelper {
                 ],
               ),
             ),
-            onWillPop: () async => false),
+            canPop: false),
         barrierDismissible: false);
   }
 

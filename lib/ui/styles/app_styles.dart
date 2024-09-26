@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
+/// Estilos personalizados
 class AppStyles {
 
   /// Estilos de TextField para el borde normal

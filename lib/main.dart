@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:moviesapp/translation/messages.dart';
 import 'package:moviesapp/ui/routes/app_pages.dart';
 import 'package:moviesapp/ui/routes/app_routes.dart';
+import 'package:moviesapp/ui/styles/app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         useMaterial3: true,
       ),
       navigatorKey: Get.key,
