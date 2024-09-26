@@ -13,14 +13,12 @@ class MovieItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      elevation: 4.0,
-      margin: EdgeInsets.all(8.0),
-      child: InkWell(
-        onTap: onTap,
-        splashColor: Colors.grey,
-        borderRadius: BorderRadius.circular(10),
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        elevation: 4.0,
+        margin: EdgeInsets.all(8.0),
         child: Container(
           width: 250,
           child: Column(
@@ -32,14 +30,17 @@ class MovieItemList extends StatelessWidget {
                 width: 250,
                 height: 250,
               ),*/
-              CachedNetworkImage(
-                width: 250,
-                height: 250,
-                fit: BoxFit.fill,
-                imageUrl: "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
-                progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    LoadingView(),
-                errorWidget: (context, url, error) => Icon(Icons.error),
+              Hero(
+                tag: movieModel,
+                child: CachedNetworkImage(
+                  width: 250,
+                  height: 250,
+                  fit: BoxFit.fill,
+                  imageUrl: "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      LoadingView(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
