@@ -9,6 +9,7 @@ import 'package:moviesapp/ui/widgets/empty_view.dart';
 import 'package:moviesapp/ui/widgets/error_view.dart';
 import 'package:moviesapp/ui/widgets/loading_view.dart';
 
+/// Vista de Búsqueda de Películas por Título
 class SearchByTitlePage extends StatefulWidget {
   const SearchByTitlePage({super.key});
 

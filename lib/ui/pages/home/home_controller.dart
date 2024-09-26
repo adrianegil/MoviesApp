@@ -4,38 +4,36 @@ import 'package:moviesapp/network/api/api_genre.dart';
 import 'package:moviesapp/network/api/api_movie.dart';
 import 'package:moviesapp/network/model/genre_model.dart';
 import 'package:moviesapp/network/model/movie_model.dart';
-import 'package:moviesapp/ui/utils/info_type.dart';
-import 'package:moviesapp/ui/utils/toast_helper.dart';
 
 /// Controladora que maneja la lógica de funcionamiento de la vista del Home.
 class HomeController extends GetxController {
   /// Controlador del  Campo de Texto para la búsqueda por Título
   TextEditingController searchTxtFieldController = TextEditingController();
 
-  /// Variable que indica si se está cargando los Generos.
+  /// Variable que indica si se está cargando los Géneros de las Peículas.
   var isLoadingGenres = false.obs;
 
-  /// Variable que indica si hay un error a la hora de cargar los Generos.
+  /// Variable que indica si hay un error a la hora de cargar los Géneros de las Peículas.
   var isErrorGetGenres = false.obs;
 
   /// Listado de los Géneros de Películas
   List<GenreModel> get genres => _genres;
   List<GenreModel> _genres = [];
 
-  /// Variable que indica si se está cargando las Películas más populares.
+  /// Variable que indica si se está cargando las Películas más Populares.
   var isLoadingPopularMovies = false.obs;
 
-  /// Variable que indica si hay un error a la hora de cargar las Películas más populares.
+  /// Variable que indica si hay un error a la hora de cargar las Películas más Populares.
   var isErrorGetPopularMovies = false.obs;
 
   /// Listado de las Películas más populares
   List<MovieModel> get popularMovies => _popularMovies;
   List<MovieModel> _popularMovies = [];
 
-  /// Variable que indica si se está cargando las Películas más populares.
+  /// Variable que indica si se está cargando las Películas mejor Valoradas.
   var isLoadingTopRatedMovies = false.obs;
 
-  /// Variable que indica si hay un error a la hora de cargar las Películas más populares.
+  /// Variable que indica si hay un error a la hora de cargar las Películas mejor Valoradas.
   var isErrorTopRatedMovies = false.obs;
 
   /// Listado de las Películas más populares
@@ -49,7 +47,7 @@ class HomeController extends GetxController {
     init();
   }
 
-  /// Permite obtener desde la base de datos todas las imagenes capturadas por el usuario.
+  /// Permite obtener todos los Géneros de las Películas.
   Future<void> getAllGenres() async {
     isErrorGetGenres(false);
     isLoadingGenres(true);
@@ -61,11 +59,11 @@ class HomeController extends GetxController {
     } catch (e) {
       isErrorGetGenres(true);
       isLoadingGenres(false);
-      print("Error al obtener los Generos: $e");
+      print("Error al obtener los Géneros: $e");
     }
   }
 
-  /// Permite obtener desde la base de datos todas las imagenes capturadas por el usuario.
+  /// Permite obtener las Películas más Populares.
   Future<void> getAllPopularMovies() async {
     isErrorGetPopularMovies(false);
     isLoadingPopularMovies(true);
@@ -77,11 +75,11 @@ class HomeController extends GetxController {
     } catch (e) {
       isErrorGetPopularMovies(true);
       isLoadingPopularMovies(false);
-      print("Error al obtener las Peliculas más populares: $e");
+      print("Error al obtener las Películas más Populares: $e");
     }
   }
 
-  /// Permite obtener desde la base de datos todas las imagenes capturadas por el usuario.
+  /// Permite obtener las Películas mejor Valoradas.
   Future<void> getAllTopRatedMovies() async {
     isErrorTopRatedMovies(false);
     isLoadingTopRatedMovies(true);
@@ -93,10 +91,11 @@ class HomeController extends GetxController {
     } catch (e) {
       isErrorTopRatedMovies(true);
       isLoadingTopRatedMovies(false);
-      print("Error al obtener las Peliculas mejor valoradas: $e");
+      print("Error al obtener las Peliculas mejor Valoradas: $e");
     }
   }
 
+  /// Realizar las peticiones necesarias para mostrar en la información obtenida en la vista
   void init() {
     getAllGenres();
     getAllPopularMovies();

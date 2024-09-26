@@ -5,6 +5,7 @@ import 'package:moviesapp/network/model/movie_model.dart';
 import 'package:moviesapp/network/utils/url_provider.dart';
 import 'package:moviesapp/ui/widgets/loading_view.dart';
 
+/// Item List correspondientes a la Película por Género
 class MovieByGenreItemList extends StatelessWidget {
   MovieModel movieModel;
   final VoidCallback? onTap;
@@ -33,7 +34,7 @@ class MovieByGenreItemList extends StatelessWidget {
                         "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
                     progressIndicatorBuilder:
                         (context, url, downloadProgress) => LoadingView(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) => Icon(Icons.image),
                   ),
                 ),
               ),
@@ -58,7 +59,6 @@ class MovieByGenreItemList extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-
                       // Descripción
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
@@ -68,7 +68,6 @@ class MovieByGenreItemList extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-
                       Text(
                         "Release Date: ${movieModel.releaseDate ?? ""}",
                         style: TextStyle(

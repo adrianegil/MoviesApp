@@ -7,8 +7,9 @@ import 'package:moviesapp/network/model/genre_model.dart';
 import 'package:moviesapp/network/utils/data_provider.dart';
 import 'package:moviesapp/network/utils/url_provider.dart';
 
+/// Clase encargada de realizar las llamadas al servidor para los endpoints asociados a los Géneros de Películas.
 class ApiGenre {
-  /// Llamada al endpoint de Obtener todos los Generos de Peliculas.
+  /// Llamada al endpoint de Obtener todos los Géneros de Películas.
   static Future<List<GenreModel>> getAllGenres() async {
     List<GenreModel> list = [];
     try {
@@ -17,7 +18,6 @@ class ApiGenre {
           headers: {
             'Authorization': 'Bearer ${DataProvider.ACCESS_TOKEN}',
           });
-
       switch (response.statusCode) {
         case 200:
           {

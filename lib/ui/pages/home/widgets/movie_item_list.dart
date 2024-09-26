@@ -5,6 +5,7 @@ import 'package:moviesapp/network/model/movie_model.dart';
 import 'package:moviesapp/network/utils/url_provider.dart';
 import 'package:moviesapp/ui/widgets/loading_view.dart';
 
+/// Item List correspondientes a la Película
 class MovieItemList extends StatelessWidget {
   MovieModel movieModel;
   final VoidCallback? onTap;
@@ -24,12 +25,6 @@ class MovieItemList extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /*    Image.network(
-                "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
-                fit: BoxFit.fill,
-                width: 250,
-                height: 250,
-              ),*/
               Hero(
                 tag: movieModel,
                 child: CachedNetworkImage(
@@ -39,7 +34,7 @@ class MovieItemList extends StatelessWidget {
                   imageUrl: "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       LoadingView(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => Icon(Icons.image),
                 ),
               ),
               Padding(

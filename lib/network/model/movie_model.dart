@@ -1,3 +1,4 @@
+/// Modelo de datos correspondientes a las Películas
 class MovieModel {
   bool? adult;
   String? backdropPath;

@@ -8,7 +8,7 @@ class LoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
+    return Center(
       child: Container(
         child: const CupertinoActivityIndicator(
           radius: 20,

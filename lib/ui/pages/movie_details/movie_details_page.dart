@@ -6,6 +6,7 @@ import 'package:moviesapp/ui/pages/movie_details/movie_details_controller.dart';
 import 'package:moviesapp/ui/styles/app_colors.dart';
 import 'package:moviesapp/ui/widgets/loading_view.dart';
 
+/// Vista de los Detalles de la Película
 class MovieDetailsPage extends StatefulWidget {
   const MovieDetailsPage({super.key});
 

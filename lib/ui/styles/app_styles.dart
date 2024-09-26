@@ -4,7 +4,6 @@ import 'app_colors.dart';
 
 /// Estilos personalizados
 class AppStyles {
-
   /// Estilos de TextField para el borde normal
   static OutlineInputBorder textFieldBorderNormal = const OutlineInputBorder(
     borderRadius: BorderRadius.all(

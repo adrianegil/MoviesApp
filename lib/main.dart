@@ -5,6 +5,7 @@ import 'package:moviesapp/ui/routes/app_pages.dart';
 import 'package:moviesapp/ui/routes/app_routes.dart';
 import 'package:moviesapp/ui/styles/app_colors.dart';
 
+/// Inicializa la app
 void main() {
   runApp(const MyApp());
 }

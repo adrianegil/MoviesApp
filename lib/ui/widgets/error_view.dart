@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-/// Crea una vista de Error personalizable y reutilizable en cualquier vista de la app.
+/// Widget de Error personalizable y reutilizable en interfaz visual de la app.
 class ErrorView extends StatelessWidget {
   String text;
   final VoidCallback? onTap;

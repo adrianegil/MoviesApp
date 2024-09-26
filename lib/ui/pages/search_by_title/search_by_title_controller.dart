@@ -6,14 +6,14 @@ import 'package:moviesapp/ui/utils/toast_helper.dart';
 
 /// Controladora que maneja la lógica de funcionamiento de la vista de Búsqueda por Titulo.
 class SearchByTitleController extends GetxController {
-  /// Modelo de Dato correspondiente al Genero de la Pelicula
+  /// Representa el título de la Película
   String? get title => _title;
   String? _title;
 
-  /// Variable que indica si se está cargando las Películas más populares.
+  /// Variable que indica si se está cargando las Películas.
   var isLoadingMovies = false.obs;
 
-  /// Variable que indica si hay un error a la hora de cargar las Películas más populares.
+  /// Variable que indica si hay un error a la hora de cargar las Películas.
   var isErrorGetMovies = false.obs;
 
   /// Listado de las Películas más populares

@@ -5,6 +5,7 @@ import 'package:moviesapp/network/model/movie_model.dart';
 import 'package:moviesapp/network/utils/url_provider.dart';
 import 'package:moviesapp/ui/widgets/loading_view.dart';
 
+/// Item List correspondientes a la Película por Título
 class MovieByTitleItemList extends StatelessWidget {
   MovieModel movieModel;
   final VoidCallback? onTap;

@@ -1,11 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:moviesapp/ui/styles/app_colors.dart';
 
-/// AppBar Principal de la app.
+/// AppBar Normal de la app.
 class AppBarNormal extends StatelessWidget implements PreferredSizeWidget {
   String? title;
 

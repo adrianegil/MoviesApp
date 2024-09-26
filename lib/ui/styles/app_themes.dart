@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
+/// Temas de la App
 class AppThemes {
   static ThemeData light = ThemeData(
       fontFamily: "Open Sans",

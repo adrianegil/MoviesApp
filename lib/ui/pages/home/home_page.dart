@@ -4,8 +4,6 @@ import 'package:moviesapp/ui/pages/home/home_controller.dart';
 import 'package:moviesapp/ui/pages/home/widgets/appbar_main.dart';
 import 'package:moviesapp/ui/pages/home/widgets/movie_item_list.dart';
 import 'package:moviesapp/ui/routes/app_routes.dart';
-import 'package:moviesapp/ui/utils/info_type.dart';
-import 'package:moviesapp/ui/utils/toast_helper.dart';
 import 'package:moviesapp/ui/widgets/error_view.dart';
 import 'package:moviesapp/ui/widgets/loading_view.dart';
 

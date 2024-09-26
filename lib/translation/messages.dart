@@ -6,8 +6,6 @@ class Messages extends Translations {
   Map<String, Map<String, String>> get keys => {
         //Idioma Español
         "es_ES": {
-          "splash": "Splash",
-          "home": "Inicio",
           "do_you_want_to_exit": "¿Desea Cerrar la App?",
           "exit": "Salir",
           "required": "Requerido",
@@ -16,8 +14,6 @@ class Messages extends Translations {
         },
         //Idioma Ingles
         "en_US": {
-          "splash": "Splash",
-          "home": "Home",
           "do_you_want_to_exit": "Do you want to close the app?",
           "exit": "Exit",
           "required": "Required",

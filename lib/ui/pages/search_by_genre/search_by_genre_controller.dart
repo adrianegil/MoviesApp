@@ -5,16 +5,16 @@ import 'package:moviesapp/network/model/movie_model.dart';
 import 'package:moviesapp/ui/utils/info_type.dart';
 import 'package:moviesapp/ui/utils/toast_helper.dart';
 
-/// Controladora que maneja la lógica de funcionamiento de la vista de Búsqueda por Titulo.
+/// Controladora que maneja la lógica de funcionamiento de la vista de Búsqueda por Género.
 class SearchByGenreController extends GetxController {
-  /// Modelo de Dato correspondiente al Genero de la Pelicula
+  /// Modelo de Dato correspondiente al Género de la Pelicula
   GenreModel? get genreModel => _genreModel;
   GenreModel? _genreModel;
 
-  /// Variable que indica si se está cargando las Películas más populares.
+  /// Variable que indica si se está cargando las Películas .
   var isLoadingMovies = false.obs;
 
-  /// Variable que indica si hay un error a la hora de cargar las Películas más populares.
+  /// Variable que indica si hay un error a la hora de cargar las Películas.
   var isErrorGetMovies = false.obs;
 
   /// Listado de las Películas más populares
@@ -43,7 +43,7 @@ class SearchByGenreController extends GetxController {
       isLoadingMovies(false);
       ToastHelper.showCustomToast(
           message: e.toString(), infoType: InfoType.ERROR);
-      print("Error al obtener las Peliculas por Genero: $e");
+      print("Error al obtener las Peliculas por Género: $e");
     }
   }
 }

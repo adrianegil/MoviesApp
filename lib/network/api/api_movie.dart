@@ -7,6 +7,7 @@ import 'package:moviesapp/network/model/movie_model.dart';
 import 'package:moviesapp/network/utils/data_provider.dart';
 import 'package:moviesapp/network/utils/url_provider.dart';
 
+/// Clase encargada de realizar las llamadas al servidor para los endpoints asociados a las Películas.
 class ApiMovie {
   /// Llamada al endpoint de Obtener las Peliculas más populares.
   static Future<List<MovieModel>> getAllPopularMovies() async {
@@ -17,7 +18,6 @@ class ApiMovie {
           headers: {
             'Authorization': 'Bearer ${DataProvider.ACCESS_TOKEN}',
           });
-
       switch (response.statusCode) {
         case 200:
           {
@@ -41,7 +41,7 @@ class ApiMovie {
     }
   }
 
-  /// Llamada al endpoint de Obtener las Peliculas más populares.
+  /// Llamada al endpoint de Obtener las Películas mejor valoradas.
   static Future<List<MovieModel>> getAllTopRatedMovies() async {
     List<MovieModel> list = [];
     try {
@@ -50,7 +50,6 @@ class ApiMovie {
           headers: {
             'Authorization': 'Bearer ${DataProvider.ACCESS_TOKEN}',
           });
-
       switch (response.statusCode) {
         case 200:
           {
@@ -74,7 +73,7 @@ class ApiMovie {
     }
   }
 
-  /// Llamada al endpoint de Obtener las Peliculas por el Genero.
+  /// Llamada al endpoint de Obtener las Peliculas por Género.
   static Future<List<MovieModel>> getAllMoviesByGenre(int genreId) async {
     List<MovieModel> list = [];
     try {
@@ -84,7 +83,6 @@ class ApiMovie {
           headers: {
             'Authorization': 'Bearer ${DataProvider.ACCESS_TOKEN}',
           });
-
       switch (response.statusCode) {
         case 200:
           {
@@ -113,12 +111,10 @@ class ApiMovie {
     List<MovieModel> list = [];
     try {
       var response = await get(
-          Uri.parse(
-              '${UrlProvider.BASE_URL}search/movie?query=$title'),
+          Uri.parse('${UrlProvider.BASE_URL}search/movie?query=$title'),
           headers: {
             'Authorization': 'Bearer ${DataProvider.ACCESS_TOKEN}',
           });
-
       switch (response.statusCode) {
         case 200:
           {

@@ -8,6 +8,7 @@ import 'package:moviesapp/ui/widgets/empty_view.dart';
 import 'package:moviesapp/ui/widgets/error_view.dart';
 import 'package:moviesapp/ui/widgets/loading_view.dart';
 
+/// Vista de Búsqueda de Películas por Género
 class SearchByGenrePage extends StatefulWidget {
   const SearchByGenrePage({super.key});
 
@@ -28,7 +29,8 @@ class _SearchByGenrePageState extends State<SearchByGenrePage> {
         () => (controller.isLoadingMovies.isTrue)
             ? const LoadingView()
             : (controller.isErrorGetMovies.isTrue)
-                ? ErrorView("Fallo al obtener Peliculas",onTap: controller.getAllMoviesByGenre)
+                ? ErrorView("Fallo al obtener Peliculas",
+                    onTap: controller.getAllMoviesByGenre)
                 : controller.moviesByGenre.isEmpty
                     ? EmptyView("No hay Peliculas para mostrar")
                     : ListView.builder(
@@ -43,8 +45,7 @@ class _SearchByGenrePageState extends State<SearchByGenrePage> {
                               movieModel: controller.moviesByGenre[index],
                               onTap: () {
                                 Get.toNamed(AppRoutes.MOVIE_DETAILS,
-                                    arguments:
-                                        controller.moviesByGenre[index]);
+                                    arguments: controller.moviesByGenre[index]);
                               },
                             ),
                           );
