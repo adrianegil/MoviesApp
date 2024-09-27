@@ -17,10 +17,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
-        useMaterial3: true,
-      ),
+      theme: Get.isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
       navigatorKey: Get.key,
       initialRoute: AppRoutes.HOME,
       getPages: AppPages.list,

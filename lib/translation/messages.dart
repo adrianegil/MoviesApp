@@ -20,6 +20,7 @@ class Messages extends Translations {
           "top_rated_movies": "Películas mejor Valoradas",
           "there_are_no_movies_to_show": "No hay Peliculas para mostrar",
           "search": "Búsqueda",
+          "try_again": "Volver a intentar",
         },
         //Idioma Ingles
         "en_US": {
@@ -36,6 +37,7 @@ class Messages extends Translations {
           "top_rated_movies": "Top Rated Movies",
           "there_are_no_movies_to_show": "There are no movies to show",
           "search": "Search",
+          "try_again": "Try Again",
         }
       };
 }

@@ -24,7 +24,7 @@ class _SearchByTitlePageState extends State<SearchByTitlePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarNormal(
-        title: "${"search".tr}: ${controller.title}",
+        title: '${"search".tr}: "${controller.title}"',
       ),
       body: Obx(
         () => (controller.isLoadingMovies.isTrue)

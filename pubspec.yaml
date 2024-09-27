@@ -40,6 +40,8 @@ dependencies:
   http: 1.2.2
   # Biblioteca Flutter para cargar y almacenar en caché imágenes de red. También se puede utilizar con widgets de error y marcadores de posición.
   cached_network_image: ^3.4.1
+  # Complemento de Flutter para SQLite, un motor de base de datos SQL integrado, autónomo y de alta confiabilidad..
+  sqflite: ^2.3.3
 
 dev_dependencies:
   flutter_test:

@@ -10,7 +10,7 @@ class AppStyles {
       Radius.circular(14),
     ),
     borderSide: BorderSide(
-      color: Colors.black26,
+      color: Colors.grey,
     ),
   );
 
