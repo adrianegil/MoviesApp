@@ -112,25 +112,23 @@ class _HomePageState extends State<HomePage> {
                         : Container(
                             height: 40,
                             child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: controller.genres.length,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 2,
-                                        bottom: 2,
-                                        left: 8.0,
-                                        right: 8.0),
-                                    child: OutlinedButton(
-                                        onPressed: () {
-                                          Get.toNamed(AppRoutes.SEARCH_BY_GENRE,
-                                              arguments:
-                                                  controller.genres[index]);
-                                        },
-                                        child: Text(
-                                            controller.genres[index].name!)),
-                                  );
-                                }),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.genres.length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 2, bottom: 2, left: 8.0, right: 8.0),
+                                  child: OutlinedButton(
+                                      onPressed: () {
+                                        Get.toNamed(AppRoutes.SEARCH_BY_GENRE,
+                                            arguments:
+                                                controller.genres[index]);
+                                      },
+                                      child:
+                                          Text(controller.genres[index].name!)),
+                                );
+                              },
+                            ),
                           ),
               ),
               SizedBox(height: 8),
@@ -153,18 +151,19 @@ class _HomePageState extends State<HomePage> {
                         : Container(
                             height: 390,
                             child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: controller.popularMovies.length,
-                                itemBuilder: (context, index) {
-                                  return MovieItemList(
-                                    movieModel: controller.popularMovies[index],
-                                    onTap: () {
-                                      Get.toNamed(AppRoutes.MOVIE_DETAILS,
-                                          arguments:
-                                              controller.popularMovies[index]);
-                                    },
-                                  );
-                                }),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.popularMovies.length,
+                              itemBuilder: (context, index) {
+                                return MovieItemList(
+                                  movieModel: controller.popularMovies[index],
+                                  onTap: () {
+                                    Get.toNamed(AppRoutes.MOVIE_DETAILS,
+                                        arguments:
+                                            controller.popularMovies[index]);
+                                  },
+                                );
+                              },
+                            ),
                           ),
               ),
               SizedBox(height: 8),
@@ -184,19 +183,19 @@ class _HomePageState extends State<HomePage> {
                         : Container(
                             height: 390,
                             child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: controller.topRatedMovies.length,
-                                itemBuilder: (context, index) {
-                                  return MovieItemList(
-                                    movieModel:
-                                        controller.topRatedMovies[index],
-                                    onTap: () {
-                                      Get.toNamed(AppRoutes.MOVIE_DETAILS,
-                                          arguments:
-                                              controller.topRatedMovies[index]);
-                                    },
-                                  );
-                                }),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.topRatedMovies.length,
+                              itemBuilder: (context, index) {
+                                return MovieItemList(
+                                  movieModel: controller.topRatedMovies[index],
+                                  onTap: () {
+                                    Get.toNamed(AppRoutes.MOVIE_DETAILS,
+                                        arguments:
+                                            controller.topRatedMovies[index]);
+                                  },
+                                );
+                              },
+                            ),
                           ),
               ),
             ],

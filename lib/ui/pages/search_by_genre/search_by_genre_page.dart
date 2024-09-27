@@ -44,7 +44,8 @@ class _SearchByGenrePageState extends State<SearchByGenrePage> {
                                   arguments: controller.moviesByGenre[index]);
                             },
                           );
-                        }),
+                        },
+                      ),
       ),
     );
   }

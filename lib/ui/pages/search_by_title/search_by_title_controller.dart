@@ -22,7 +22,6 @@ class SearchByTitleController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     _title = Get.arguments;
     getAllMoviesByTitle();

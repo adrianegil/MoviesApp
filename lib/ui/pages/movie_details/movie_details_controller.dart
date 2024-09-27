@@ -16,7 +16,6 @@ class MovieDetailsController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     _movieModel = Get.arguments as MovieModel?;
     getAllMovieGenres();

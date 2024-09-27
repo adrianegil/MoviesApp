@@ -93,7 +93,7 @@ class HomeController extends GetxController {
     } catch (e) {
       isErrorTopRatedMovies(true);
       isLoadingTopRatedMovies(false);
-      print("Error al obtener las Peliculas mejor Valoradas: $e");
+      print("Error al obtener las Películas mejor Valoradas: $e");
     }
   }
 

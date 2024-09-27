@@ -17,7 +17,6 @@ class EmptyView extends StatelessWidget {
         children: [
           Image.asset(
             "assets/images/ic_empty_view.png",
-            // Ruta de la imagen en los activos del dispositivo
             height: 120,
             width: 120,
           ),

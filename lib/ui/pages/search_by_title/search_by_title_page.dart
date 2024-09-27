@@ -40,15 +40,18 @@ class _SearchByTitlePageState extends State<SearchByTitlePage> {
                         padding: EdgeInsets.all(2),
                         mainAxisSpacing: 2,
                         crossAxisSpacing: 2,
-                        children: List.generate(controller.moviesByTitle.length,
-                            (index) {
-                          return MovieByTitleItemList(
+                        children: List.generate(
+                          controller.moviesByTitle.length,
+                          (index) {
+                            return MovieByTitleItemList(
                               movieModel: controller.moviesByTitle[index],
                               onTap: () {
                                 Get.toNamed(AppRoutes.MOVIE_DETAILS,
                                     arguments: controller.moviesByTitle[index]);
-                              });
-                        }),
+                              },
+                            );
+                          },
+                        ),
                       ),
       ),
     );

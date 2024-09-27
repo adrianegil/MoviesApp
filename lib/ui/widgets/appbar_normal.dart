@@ -33,7 +33,7 @@ class AppBarNormal extends StatelessWidget implements PreferredSizeWidget {
         Padding(
           padding: const EdgeInsets.only(right: 16.0),
           child: Image.asset(
-            'assets/images/logo.png', // Reemplaza con la ruta de tu logo
+            'assets/images/logo.png',
             height: 25,
             width: 25,
           ),

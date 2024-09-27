@@ -23,7 +23,6 @@ class SearchByGenreController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     _genreModel = Get.arguments as GenreModel?;
     getAllMoviesByGenre();
