@@ -25,17 +25,15 @@ class MovieByGenreItemList extends StatelessWidget {
             children: [
               Hero(
                 tag: movieModel,
-                child: Expanded(
-                  child: CachedNetworkImage(
-                    width: 140,
-                    height: 190,
-                    fit: BoxFit.fill,
-                    imageUrl:
-                        "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
-                    progressIndicatorBuilder:
-                        (context, url, downloadProgress) => LoadingView(),
-                    errorWidget: (context, url, error) => Icon(Icons.image),
-                  ),
+                child: CachedNetworkImage(
+                  width: 140,
+                  height: 190,
+                  fit: BoxFit.fill,
+                  imageUrl:
+                      "${UrlProvider.IMAGE_URL}/${movieModel.posterPath}",
+                  progressIndicatorBuilder:
+                      (context, url, downloadProgress) => LoadingView(),
+                  errorWidget: (context, url, error) => Icon(Icons.image),
                 ),
               ),
               SizedBox(width: 8.0),

@@ -29,25 +29,20 @@ class _SearchByGenrePageState extends State<SearchByGenrePage> {
         () => (controller.isLoadingMovies.isTrue)
             ? const LoadingView()
             : (controller.isErrorGetMovies.isTrue)
-                ? ErrorView("Fallo al obtener Peliculas",
+                ? ErrorView("failed_to_get_movies".tr,
                     onTap: controller.getAllMoviesByGenre)
                 : controller.moviesByGenre.isEmpty
-                    ? EmptyView("No hay Peliculas para mostrar")
+                    ? EmptyView("failed_to_get_movies".tr)
                     : ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: controller.moviesByGenre.length,
                         itemBuilder: (context, index) {
-                          return Container(
-                            width: MediaQuery.of(context).size.width < 500
-                                ? MediaQuery.of(context).size.width
-                                : 50,
-                            child: MovieByGenreItemList(
-                              movieModel: controller.moviesByGenre[index],
-                              onTap: () {
-                                Get.toNamed(AppRoutes.MOVIE_DETAILS,
-                                    arguments: controller.moviesByGenre[index]);
-                              },
-                            ),
+                          return MovieByGenreItemList(
+                            movieModel: controller.moviesByGenre[index],
+                            onTap: () {
+                              Get.toNamed(AppRoutes.MOVIE_DETAILS,
+                                  arguments: controller.moviesByGenre[index]);
+                            },
                           );
                         }),
       ),

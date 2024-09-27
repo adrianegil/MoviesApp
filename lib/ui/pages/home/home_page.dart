@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                         focusedErrorBorder: AppStyles.textFieldBorderError,
                         floatingLabelStyle:
                             const TextStyle(color: AppColors.primaryColor),
-                        label: Text("Buscar por Título"),
+                        label: Text("search_by_title".tr),
                         iconColor: AppColors.primaryColor,
                         suffixIcon: IconButton(
                           icon: Icon(Icons.search),
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  "Géneros",
+                  "genres".tr,
                   style: TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                                       padding: EdgeInsets.only(
                                           left: 10, right: 10, bottom: 10),
                                       child: Text(
-                                        "Error al Cargar los Géneros de las Peliculas",
+                                        "error_loading_movie_genres".tr,
                                         style: TextStyle(
                                           fontSize: 16,
                                           letterSpacing: 1,
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  "Peliculas mas Populares",
+                  "most_popular_movies".tr,
                   style: TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                       ? const LoadingView()
                       : (controller.isErrorGetPopularMovies.isTrue)
                           ? ErrorView(
-                              "Fallo al obtener Peliculas",
+                              "failed_to_get_movies".tr,
                               onTap: controller.init,
                             )
                           : Container(
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  "Peliculas mejor Valoradas",
+                  "top_rated_movies".tr,
                   style: TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
