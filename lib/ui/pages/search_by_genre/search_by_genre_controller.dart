@@ -17,7 +17,7 @@ class SearchByGenreController extends GetxController {
   /// Variable que indica si hay un error a la hora de cargar las Películas.
   var isErrorGetMovies = false.obs;
 
-  /// Listado de las Películas más populares
+  /// Listado de las Películas por Género
   List<MovieModel> get moviesByGenre => _moviesByGenre;
   List<MovieModel> _moviesByGenre = [];
 
@@ -29,7 +29,7 @@ class SearchByGenreController extends GetxController {
     getAllMoviesByGenre();
   }
 
-  /// Permite obtener desde la base de datos todas las imagenes capturadas por el usuario.
+  /// Permite obtener el listado de las Películas por Género.
   Future<void> getAllMoviesByGenre() async {
     isErrorGetMovies(false);
     isLoadingMovies(true);

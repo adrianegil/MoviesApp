@@ -1,4 +1,4 @@
-/// Modelo de datos correspondientes a los Generos de las peliculas
+/// Modelo de datos correspondientes a los Géneros de las peliculas
 class GenreModel {
   int? id;
   String? name;
@@ -15,6 +15,13 @@ class GenreModel {
     data['id'] = this.id;
     data['name'] = this.name;
     return data;
+  }
+
+  Map<String, dynamic> toGenreEntityMap() {
+    return {
+      'id': id,
+      'name': name,
+    };
   }
 
   @override

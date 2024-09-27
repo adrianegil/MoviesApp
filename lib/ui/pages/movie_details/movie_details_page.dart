@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviesapp/network/utils/url_provider.dart';
 import 'package:moviesapp/ui/pages/movie_details/movie_details_controller.dart';
+import 'package:moviesapp/ui/pages/movie_details/widgets/genre_item_list.dart';
 import 'package:moviesapp/ui/styles/app_colors.dart';
 import 'package:moviesapp/ui/widgets/loading_view.dart';
 
@@ -63,6 +64,25 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                ),
+                Obx(
+                  () => (controller.movieGenres.value.isNotEmpty)
+                      ? Padding(
+                          padding: const EdgeInsets.only(left: 8, bottom: 8),
+                          child: SizedBox(
+                            height: 40,
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.movieGenres.value.length,
+                              itemBuilder: (context, index) {
+                                return GenreItemList(
+                                    genre: controller.movieGenres.value[index]);
+                              },
+                            ),
+                          ),
+                        )
+                      : Container(),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),

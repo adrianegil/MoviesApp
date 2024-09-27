@@ -16,7 +16,7 @@ class SearchByTitleController extends GetxController {
   /// Variable que indica si hay un error a la hora de cargar las Películas.
   var isErrorGetMovies = false.obs;
 
-  /// Listado de las Películas más populares
+  /// Listado de las Películas por Título
   List<MovieModel> get moviesByTitle => _moviesByTitle;
   List<MovieModel> _moviesByTitle = [];
 

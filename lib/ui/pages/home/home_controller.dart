@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:moviesapp/data/dao/genre_dao.dart';
 import 'package:moviesapp/network/api/api_genre.dart';
 import 'package:moviesapp/network/api/api_movie.dart';
 import 'package:moviesapp/network/model/genre_model.dart';
@@ -10,10 +11,10 @@ class HomeController extends GetxController {
   /// Controlador del  Campo de Texto para la búsqueda por Título
   TextEditingController searchTxtFieldController = TextEditingController();
 
-  /// Variable que indica si se está cargando los Géneros de las Peículas.
+  /// Variable que indica si se está cargando los Géneros de las Películas.
   var isLoadingGenres = false.obs;
 
-  /// Variable que indica si hay un error a la hora de cargar los Géneros de las Peículas.
+  /// Variable que indica si hay un error a la hora de cargar los Géneros de las Películas.
   var isErrorGetGenres = false.obs;
 
   /// Listado de los Géneros de Películas
@@ -37,7 +38,7 @@ class HomeController extends GetxController {
   var isErrorTopRatedMovies = false.obs;
 
   /// Listado de las Películas más populares
-  List<MovieModel> get topRaitedMovies => _topRatedMovies;
+  List<MovieModel> get topRatedMovies => _topRatedMovies;
   List<MovieModel> _topRatedMovies = [];
 
   @override
@@ -54,6 +55,7 @@ class HomeController extends GetxController {
     try {
       _genres = await ApiGenre.getAllGenres();
       print(genres);
+      GenreDao.insertAllGenres(genres);
       isErrorGetGenres(false);
       isLoadingGenres(false);
     } catch (e) {

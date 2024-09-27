@@ -9,7 +9,7 @@ import 'package:moviesapp/network/utils/url_provider.dart';
 
 /// Clase encargada de realizar las llamadas al servidor para los endpoints asociados a las Películas.
 class ApiMovie {
-  /// Llamada al endpoint de Obtener las Peliculas más populares.
+  /// Llamada al endpoint de Obtener las Películas más populares.
   static Future<List<MovieModel>> getAllPopularMovies() async {
     List<MovieModel> list = [];
     try {
@@ -73,7 +73,7 @@ class ApiMovie {
     }
   }
 
-  /// Llamada al endpoint de Obtener las Peliculas por Género.
+  /// Llamada al endpoint de Obtener las Películas por Género.
   static Future<List<MovieModel>> getAllMoviesByGenre(int genreId) async {
     List<MovieModel> list = [];
     try {
@@ -106,7 +106,7 @@ class ApiMovie {
     }
   }
 
-  /// Llamada al endpoint de Obtener las Peliculas por el Título.
+  /// Llamada al endpoint de Obtener las Películas por el Título.
   static Future<List<MovieModel>> getAllMoviesByTitle(String title) async {
     List<MovieModel> list = [];
     try {
